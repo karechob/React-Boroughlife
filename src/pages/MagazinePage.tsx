@@ -1,11 +1,10 @@
-import NavBar from "../components/NavBar"
+import MainLayout from "../Layout/MainLayout"
 
 function MagazinePage() {
   return (
-    <div>
-        <NavBar></NavBar>
-        <div>Magazine Page</div>
-    </div>
+    <MainLayout> 
+      <div>Magazine Page</div>
+    </MainLayout>
   )
 }
 

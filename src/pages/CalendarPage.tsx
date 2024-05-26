@@ -1,11 +1,10 @@
-import NavBar from '../components/NavBar'
+import MainLayout from "../Layout/MainLayout"
 
 function CalendarPage() {
   return (
-    <div>
-        <NavBar></NavBar>
-        <div>Calendar Page</div>    
-    </div>
+    <MainLayout> 
+      <div>Calendar Page</div>
+    </MainLayout>
   )
 }
 

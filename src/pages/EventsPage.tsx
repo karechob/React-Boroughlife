@@ -1,11 +1,10 @@
-import NavBar from '../components/NavBar'
+import MainLayout from "../Layout/MainLayout"
 
 function EventsPage() {
   return (
-    <div>
-        <NavBar></NavBar>
-        <div>Events Page</div>
-    </div>
+    <MainLayout> 
+      <div>Events Page</div>
+    </MainLayout>
   )
 }
 
