@@ -1,9 +1,10 @@
 import MainLayout from "../Layout/MainLayout"
+import NewsFeed from "../components/NewsFeed"
 
 function MagazinePage() {
   return (
     <MainLayout> 
-      <div>Magazine Page</div>
+      <NewsFeed></NewsFeed>
     </MainLayout>
   )
 }
