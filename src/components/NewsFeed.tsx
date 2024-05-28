@@ -3,7 +3,7 @@ import axios from "axios";
 import NewsItem from "./NewsItem";
 
 const NewsFeed = () => {
-  const [articles, setArticles] = useState([]);
+  const [articles, setArticles] = useState<any[]>([]);
   useEffect(() => {
     const getArticles = async () => {
       const response = await axios.get(
