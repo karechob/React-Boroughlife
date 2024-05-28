@@ -5,12 +5,12 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './index.css'
 import EventsPage from './pages/EventsPage.tsx'
 import CalendarPage from './pages/CalendarPage.tsx'
-
+import MagazinePage from './pages/MagazinePage.tsx'
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import MagazinePage from './pages/MagazinePage.tsx'
+
 
 
 const router = createBrowserRouter([
