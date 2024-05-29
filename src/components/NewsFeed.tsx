@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import NewsItem from "./NewsItem";
+import LatestNewsItem from "./LatestNewsItem";
+import TopNewsItem from "./TopNewsItem";
 
 const NewsFeed = () => {
-  const [articles, setArticles] = useState<any[]>([]);
+  const [topArticles, setTopArticles] = useState<any[]>([]);
+  const [latestArticles, setLatestArticles] = useState<any[]>([]);
   useEffect(() => {
     const getArticles = async () => {
-      const response = await axios.get(
-        "https://newsapi.org/v2/top-headlines?country=us&apiKey=99f062a792664e49814dd86156b78dd0"
-      );
+      const response = await axios.get("https://newsapi.org/v2/top-headlines?country=us&apiKey=99f062a792664e49814dd86156b78dd0");
+      const response2 = await axios.get("https://newsapi.org/v2/everything?q=newyork&apiKey=99f062a792664e49814dd86156b78dd0");
       console.log(response);
-      setArticles(response.data.articles);
+      setTopArticles(response.data.articles);
+      setLatestArticles(response2.data.articles);
     };
     getArticles();
   }, []);
@@ -24,14 +26,14 @@ const NewsFeed = () => {
                   LATEST NEWS
               </div>
               <div>
-                {articles.map((article) => {
+                {latestArticles.map((article) => {
                   return (
-                    <NewsItem
+                    <LatestNewsItem
                       title={article.title}
                       description={article.description}
                       url={article.url}
                       urlToImage={article.urlToImage}
-                    ></NewsItem>
+                    ></LatestNewsItem>
                   );
                 })}
               </div>
@@ -39,47 +41,20 @@ const NewsFeed = () => {
             <li>
               <div style={{ marginLeft: "30px" }}>
                 <div style={{ marginBottom: "10px" }}>
-                  <h2
-                    style={{
-                      font: "Times-Roman",
-                      color: "#EB3B15",
-                      fontWeight: "bolder",
-                      fontSize: 30,
-                    }}
-                  >
+                  <div style={{font: "Times-Roman",color: "#EB3B15",fontWeight: "bolder",fontSize: 30,}}>
                     POPULAR NEWS
-                  </h2>
+                  </div>
                 </div>
-                <div>
-                  <p
-                    style={{
-                      font: "Times-Roman",
-                      fontWeight: "bolder",
-                      fontSize: 15,
-                      marginBottom: 30,
-                      maxWidth: "450px",
-                    }}
-                  >
-                    Sample Text Sample Text Sample Text Sample TextSample Text
-                    Sample Text Sample Text Sample Text Sample Text Sample Text
-                    Sample Text Sample Text Sample Text Sample Text
-                  </p>
-                </div>
-                <div>
-                  <p
-                    style={{
-                      font: "Times-Roman",
-                      fontWeight: "bolder",
-                      fontSize: 15,
-                      marginBottom: 30,
-                      maxWidth: "450px",
-                    }}
-                  >
-                    Sample Text Sample Text Sample Text Sample TextSample Text
-                    Sample Text Sample Text Sample Text Sample Text Sample Text
-                    Sample Text Sample Text Sample Text Sample Text
-                  </p>
-                </div>
+              </div>
+              <div>
+                {topArticles.map((article) => {
+                  return (
+                    <TopNewsItem
+                      title={article.title}
+                      url={article.url}
+                    ></TopNewsItem>
+                  );
+                })}
               </div>
             </li>
           </ul>

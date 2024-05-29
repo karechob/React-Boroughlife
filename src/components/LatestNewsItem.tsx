@@ -1,6 +1,5 @@
-import React from 'react'
 
-const NewsItem = ({title, description, url, urlToImage} : {title : string, description : string, url : string, urlToImage : string}) => {
+const LatestNewsItem = ({title, description, url, urlToImage} : {title : string, description : string, url : string, urlToImage : string}) => {
   return (
     <div>
         <div style={{maxWidth: '650px', display: 'flex', marginTop: '30px'}}>
@@ -18,4 +17,4 @@ const NewsItem = ({title, description, url, urlToImage} : {title : string, descr
   )
 }
 
-export default NewsItem
+export default LatestNewsItem
