@@ -9,7 +9,7 @@ const NewsFeed = () => {
   useEffect(() => {
     const getArticles = async () => {
       const response = await axios.get("https://newsapi.org/v2/top-headlines?country=us&apiKey=99f062a792664e49814dd86156b78dd0");
-      const response2 = await axios.get("https://newsapi.org/v2/everything?q=newyork&apiKey=99f062a792664e49814dd86156b78dd0");
+      const response2 = await axios.get("https://newsapi.org/v2/everything?q=newyork&pagesize=10&apiKey=99f062a792664e49814dd86156b78dd0");
       console.log(response);
       setTopArticles(response.data.articles);
       setLatestArticles(response2.data.articles);
@@ -25,7 +25,7 @@ const NewsFeed = () => {
               <div style={{font: 'Times-Roman', color: '#EB3B15', fontWeight: 'bolder', fontSize: 30}}>
                   LATEST NEWS
               </div>
-              <div>
+              <div style={{marginBottom: '30px'}}>
                 {latestArticles.map((article) => {
                   return (
                     <LatestNewsItem
